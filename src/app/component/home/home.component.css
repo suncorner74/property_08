@@ -1,0 +1,17 @@
+#number h1 {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.service-text {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.service-text h4 {
+    color: #fff;
+    text-transform: uppercase;
+}
+h4, .h4 {
+    font-size: 18px;
+}

@@ -1,0 +1,53 @@
+<section class="page-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<!-- Content -->
+				<div id="content">
+            <article class="post property-item" *ngFor="let dataDes of builderDetail">
+                <div class="post-property-header">
+                  <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                      <h3 class="post-title"><a>{{dataDes.companyName}}</a></h3>
+                    </div>
+                
+                  </div>
+                  <div class="property-address">
+                   {{dataDes.address}}
+                  </div>
+    
+                </div>
+    
+                <!-- Property Gallery Slider -->
+                <div class="property-image">
+                  <div id="property-slider" class="property-slider" >
+                   
+                    <img *ngFor="let img of dataDes.imageUrls" src="assets/images/{{img}}" alt="Property Photo 1">
+                    
+                  </div>
+                  <!-- Property Gallery Slider Navigation -->
+                  <div id="property-slider-nav" class="property-slider-nav">
+                      <img *ngFor="let img of dataDes.imageUrls" src="assets/images/{{img}}" alt="Property Photo 1">
+                  </div>
+                </div>
+                <!-- Property facility Detail -->
+    
+                <!-- <p>{{dataDes.description}}</p> -->
+                
+                <!-- The Space Section -->
+                <hr>
+              
+                <div class="row">
+                  <div class="col-md-3 col-sm-3"><h3 class="heading-title">Description</h3></div>
+                  <div class="col-md-9 col-sm-9">
+                    <p>{{dataDes.description}}</p>
+                  </div>
+                </div>
+                <!-- Availability Section -->
+    
+              </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

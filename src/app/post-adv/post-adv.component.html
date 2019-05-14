@@ -1,0 +1,314 @@
+<section class="post-adv">
+  <div class="container">
+        <div class="row">
+          <div class="col-md-12 ">
+            <div class="ppSecBlock">
+              <div class="dataBlock">
+                <div class="secHeading">Personal Details</div>
+                <div class="formEle">
+                  <div class="formLabel">I am</div>
+                  <div class="formValue">
+                    <div class="radioBlock">
+                      <ul>
+                        <li>
+                          <input type="radio" id="f-option" name="selector">
+                          <label for="f-option"> Owner</label>
+                          <div class="check"></div>
+                        </li>
+                        <li>
+                          <input type="radio" id="s-option" name="selector">
+                          <label for="s-option">Agent</label>
+                          <div class="check">
+                            <div class="inside"></div>
+                          </div>
+                        </li>
+                        <li>
+                          <input type="radio" id="t-option" name="selector">
+                          <label for="t-option"> Builder</label>
+
+                          <div class="check">
+                            <div class="inside"></div>
+                          </div>
+                        </li>
+                      </ul>
+
+                      <div class="clearAll"></div>
+
+                    </div>
+                  </div>
+                  <div class="valiDated" id="iamTick"></div>
+                  <div class="clearAll"></div>
+                </div>
+                <div class="clearAll"></div>
+
+                <div class="formEle v--display" id="userNameBlock">
+                  <div class="formLabel inputDrop" id="">Name</div>
+                  <div class="formValue">
+                    <div class="formCom">
+                      <span class="inputContainer">
+                        <input id="name" name="name" class="ciDrop inputText" placeholder="Enter Your Name" value="" type="text">
+                      </span>
+                    </div>
+
+
+                  </div>
+                  <div class="clearAll"></div>
+                </div>
+
+                <div class="clearAll"></div>
+
+                <div class="formEle v--display" id="userMobileBlock">
+                  <div class="formLabel inputDrop" id="">Mobile</div>
+                  <div class="formValue">
+
+                    <div class="formCom">
+                      <span class="inputContainer">
+                        <input id="mobileNo" name="mobileNo" class="ciDrop inputText" placeholder="Enter Your Mobile" value="" type="text">
+                      </span>
+                    </div>
+
+
+
+                  </div>
+                  <div class="clearAll"></div>
+                </div>
+
+                <div class="clearAll"></div>
+
+                <div class="formEle v--display" id="userEmailBlock">
+                  <div class="formLabel inputDrop" id="">Email</div>
+                  <div class="formValue">
+                    <div class="formCom">
+                      <span class="inputContainer">
+                        <input id="email" name="email" class="ciDrop inputText" placeholder="Enter Your Email" value="" maxlength="100" type="text">
+                      </span>
+                    </div>
+
+
+
+                  </div>
+                  <div class="clearAll"></div>
+                </div>
+
+                <div class="clearAll"></div>
+              </div>
+
+
+
+            </div>
+
+            <div class="ppSecBlock">
+              <div class="dataBlock">
+                <div class="secHeading">Property Details</div>
+
+                <div class="formEle">
+                  <div class="formLabel">For</div>
+                  <div class="formValue">
+                    <div class="radioBlock">
+                      <ul>
+                        <li>
+                          <input type="radio" id="sale" name="selector">
+                          <label for="sale"> Sale</label>
+                          <div class="check"></div>
+                        </li>
+                        <li>
+                          <input type="radio" id="rent" name="selector">
+                          <label for="rent">Rent</label>
+                          <div class="check">
+                            <div class="inside"></div>
+                          </div>
+                        </li>
+
+                      </ul>
+
+                      <div class="clearAll"></div>
+
+                    </div>
+                  </div>
+                  <div class="valiDated" id="iamTick"></div>
+                  <div class="clearAll"></div>
+                </div>
+                <div class="clearAll"></div>
+                <div class="formEle v--display">
+                  <div class="formLabel inputDrop">Property Type</div>
+                  <div class="formValue posRel">
+                    <div class="formCom">
+                      <span class="inputContainer">
+                        <select id="propertyType" name="propertyType" class="areaList form-control" >
+                          <option value="-1">Select Property Type</option>
+                        </select>
+                        <div class="unitBlockAreaDropDown" style="display: none;">
+                          <ul></ul>
+                        </div>
+                        </span>
+                    </div>
+                    <div class="valiDated" id="propertyTypeTick"></div>
+                    <div class="clearAll"></div>
+                    <div id="propertyTypeError" class="formErr" style="display: none;">
+                      <span class="formErrArrow"></span>
+                      <span>Error message goes here</span>
+                    </div>
+
+                    <div class="hint-coworking" id="hintcoworking" style="display:none;">
+                      Rent out seats in a shared office space. Get paid per seat basis.
+                    </div>
+
+                  </div>
+                </div>
+                <div class="clearAll"></div>
+                <div class="formEle v--display">
+                  <div class="formLabel inputDrop" id="">Property Name</div>
+                  <div class="formValue">
+                    <div class="formCom">
+                      <span class="inputContainer">
+                        <input name="propertyName" class="ciDrop inputText" placeholder="Enter Your Property Name" value="" maxlength="100" type="text">
+                      </span>
+                    </div>
+                  </div>
+                  <div class="clearAll"></div>
+                </div>
+                <div class="clearAll"></div>
+                <div class="formEle v--display">
+                  <div class="formLabel inputDrop" id="">Property Locality</div>
+                  <div class="formValue">
+                    <div class="formCom">
+                      <span class="inputContainer">
+                        <input name="propertyLoaction" class="ciDrop inputText" placeholder="Enter Your Property location" maxlength="100" type="text">
+                      </span>
+                    </div>
+                  </div>
+                  <div class="clearAll"></div>
+                </div>
+                <div class="clearAll"></div>
+                <div class="formEle v--display">
+                  <div class="formLabel inputDrop" id="">Property Images</div>
+                  <div class="formValue">
+                    <div class="formCom">
+                      <span class="inputContainer">
+                        <input name="propertyImages" multiple="multiple" class="ciDrop inputText" placeholder="Upload Property Images" value="" type="file">
+                      </span>
+                    </div>
+                  </div>
+                  <div class="clearAll"></div>
+                </div>
+              </div>
+              <div class="clearAll"></div>
+              <div class="formEle v--display">
+                <div class="formLabel inputDrop" id="">Property Price</div>
+                <div class="formValue">
+                  <div class="formCom">
+                    <span class="inputContainer">
+                      <input name="propertyPrice" class="ciDrop inputText" placeholder="Enter Your Property Price" value="" maxlength="100" type="number">
+                    </span>
+                  </div>
+                </div>
+                <div class="clearAll"></div>
+              </div>
+              <div class="clearAll"></div>
+              <div class="formEle v--display">
+                <div class="formLabel inputDrop" id="">Property Short Description</div>
+                <div class="formValue">
+                  <div class="formCom">
+                    <span class="inputContainer">
+                      <textarea name="propertyShortDescription" class="ciDrop inputTextarea" placeholder="Enter Your Property Short Description" value="" maxlength="100"></textarea>
+                    </span>
+                  </div>
+                </div>
+                <div class="clearAll"></div>
+              </div>
+              <div class="clearAll"></div>
+              <div class="formEle v--display">
+                <div class="formLabel inputDrop" id="">Property Long Description</div>
+                <div class="formValue">
+                  <div class="formCom">
+                    <span class="inputContainer">
+                      <textarea name="propertyLongDescription" class="ciDrop inputTextarea" placeholder="Enter Your Property Long Description" value="" maxlength="100"></textarea>
+                    </span>
+                  </div>
+                </div>
+                <div class="clearAll"></div>
+              </div>
+              <div class="clearAll"></div>
+              <div class="formEle v--display">
+                <div class="formLabel inputDrop" id="">Property Area( <sup>2</sup>foot )</div>
+                <div class="formValue">
+                  <div class="formCom">
+                    <span class="inputContainer">
+                      <input name="area" class="ciDrop inputText" placeholder="Enter Your Property Area" value="" maxlength="100" type="text" />
+                    </span>
+                  </div>
+                </div>
+                <div class="clearAll"></div>
+              </div>
+              <div class="clearAll"></div>
+              <div class="dataBlock">
+                <div class="secHeading">Amenities</div>
+                <div class="clearAll"></div>
+                <div class="formEle v--display">
+                  <div class="formLabel inputDrop" id="">Bed Rooms</div>
+                  <div class="formValue">
+                    <div class="formCom">
+                      <span class="inputContainer">
+                        <select name="BedRoom" class="ciDrop inputText" >
+                        <option>0</option>
+                        <option>1</option>
+                        </select>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="clearAll"></div>
+                </div>
+                <div class="clearAll"></div>
+                <div class="formEle v--display">
+                  <div class="formLabel inputDrop" id="">Property Plan Images ( If Required )</div>
+                  <div class="formValue">
+                    <div class="formCom">
+                      <span class="inputContainer">
+                        <input name="propertyPlanImages" multiple="multiple" class="ciDrop inputText" placeholder="Upload Property Plan Images" type="file">
+                      </span>
+                    </div>
+                  </div>
+                  <div class="clearAll"></div>
+                </div>
+              </div>
+              <div class="clearAll"></div>
+              <div class="formEle v--display">
+                <div class="formLabel inputDrop" id="">Property Documents</div>
+                <div class="formValue">
+                  <div class="formCom">
+                    <span class="inputContainer">
+                      <input name="propertyDocument" multiple="multiple" class="ciDrop inputText" placeholder="Upload Property Documents" type="file">
+                    </span>
+                  </div>
+                </div>
+                <div class="clearAll"></div>
+              </div>
+              <div class="clearAll"></div>
+              <div class="formEle v--display">
+                <div class="formLabel inputDrop" id="">Property Loaction Map( Google Map Data )</div>
+                <div class="formValue">
+                  <div class="formCom">
+                    <span class="inputContainer">
+                      <textarea name="map" class="ciDrop inputTextarea" placeholder="Enter Property Google Map Data"></textarea>
+                    </span>
+                  </div>
+                </div>
+                <div class="clearAll"></div>
+              </div>
+              <div class="clearAll"></div>
+              <div class="formEle v--display">
+                <div class="formValue">
+                  <div class="formCom">
+                    <span class="inputContainer">
+                      <input type="button" class="btn btn-danger" value="Post Property"/>
+                    </span>
+                  </div>
+                </div>
+                <div class="clearAll"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  
+</section>

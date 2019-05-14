@@ -1,0 +1,11 @@
+.container-login100{
+background-image: url('../../../assets/images/bg-icon-1.png');
+}
+
+.custom-select.is-invalid, .form-control.is-invalid, .was-validated .custom-select:invalid, .was-validated .form-control:invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+}

@@ -1,0 +1,216 @@
+<section class="page-header bg-solid">
+  <div class="container">
+    <h1 class="page-header-title">Search Result</h1>
+    <ul class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li class="active">Search Result</li>
+    </ul>
+  </div>
+</section>
+
+<section id="property-search-result" class="archive-property">
+  <!-- Tabmenu Container / Default Bootstrap Structure -->
+  <div class="search-tabmenu">
+    <div class="tabmenu-header">
+      <div class="row">
+        <!-- Tabmenu Navigation -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active"><a role="tab" (click)="buyOrSale(0)" data-toggle="tab"> Sale</a></li>
+          <li><a role="tab" data-toggle="tab" (click)="buyOrSale(1)"> Rent</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Tabmenu Body / Content -->
+    <div class="tabmenu-body">
+      <div class="row">
+        <div class="tab-content">
+          <!-- Tabmenu Content 1 / Property For SALE -->
+          <div role="tabpanel" class="tab-pane active" id="for-sale">
+            <form action="#">
+              <div class="form-body">
+                <!-- Property for Sale Content Row 1 -->
+                <div class="row">
+                  <div class="col-md-5 ">
+                    <select (change)="filterByLocation($event.target.value)" class="form-control" id="sale-location">
+                      <option value="0">Any Location</option>
+                      <option *ngFor="let location of findLocations" value="{{location}}">{{location}}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3 ">
+                    <select (change)="filterByType($event.target.value)" class="form-control" id="sale-type">
+                      <option value="0">All Type</option>
+                      <option [ngValue]="type.id" *ngFor="let type of propertyType.list" value="{{type.id}}">{{type.name}}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4" *ngIf="saleOrRent==0">
+                    <div class="col-md-6">
+                      <select id="sf-size-min" name="sf-size-min" (change)="chagePriceMinValue($event.target.value)" class="form-control">
+                        <option label="Space Min" selected="selected" disabled="disabled" value="none">Space Min</option>
+                        <option *ngFor="let price of minPriceList" value="{{price.numberAsInt}}">{{price.numberAsStr}}</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <select id="sf-size-max" name="sf-size-max" (change)="chagePriceMaxValue($event.target.value)" class="form-control">
+                        <option label="Space Max" selected="selected" disabled="disabled" value="none">Space Max</option>
+                        <option *ngFor="let price of maxPriceList" value="{{price.numberAsInt}}">{{price.numberAsStr}}</option>
+
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4 " *ngIf="saleOrRent==1">
+                    <div class="col-md-6">
+                      <select id="sf-size-min" name="sf-size-min" (change)="chagePriceMinValue($event.target.value)" class="form-control">
+                        <option label="Space Min" selected="selected" disabled="disabled" value="none">Space Min</option>
+                        <option *ngFor="let price of minPriceList" value="{{price.numberAsInt}}">{{price.numberAsStr}}</option>
+
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <select id="sf-size-max" name="sf-size-max" (change)="chagePriceMaxValue($event.target.value)" class="form-control">
+                        <option label="Space Max" selected="selected" disabled="disabled" value="none">Space Max</option>
+                        <option *ngFor="let price of maxPriceList" value="{{price.numberAsInt}}">{{price.numberAsStr}}</option>
+
+                      </select>
+                    </div>
+                    <!-- <div *ngIf="saleOrRent==0">
+                      <b>5 Lac &nbsp; &nbsp; &nbsp;</b>
+                      <mv-slider [(value)]="value" [min]="500" [max]="500000" [enabled]="enabled" (change)="chagePnriceValue($event)"></mv-slider><b> &nbsp; &nbsp; 20
+                        Cr</b>
+                    </div>
+                    <div *ngIf="saleOrRent==1">
+                      <b>5k  &nbsp; &nbsp; &nbsp; </b>
+                      <mv-slider [(value)]="value" [min]="5000" [max]="1000000" [enabled]="enabled" (change)="chagePnriceValue($event)"></mv-slider><b>
+                        &nbsp; &nbsp; 10 Lac</b>
+
+                    </div> -->
+
+                    <!-- <div class="range-box">
+                        <input id="sale-range-price" readonly="">
+                      </div> -->
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ====== PAGE CONTENT ====== -->
+  <div class="page-section">
+    <div class="container">
+
+      <div class="panel filter-panel">
+        <div class="panel-body">
+          <h4 class="filter-title pull-left">{{searchResult.length}} Matches Found</h4>
+          <form action="#" class="form-inline pull-right">
+            <div class="form-group">
+              <label>Sort By:</label>
+              <select class="form-control">
+                <option value="1">Lowest Price</option>
+                <option value="2">Highest Price</option>
+                <option value="3">Popular</option>
+                <option value="4">Newest</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="property-list archive-flex archive-with-footer">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-6" [ngClass]="searchResult.length? '': 'display-none'" *ngFor="let data of searchResult">
+            <!-- Property Item -->
+            <div class="property-item">
+              <div class="property-heading">
+                <span class="item-price">&#8377; {{ data.price }}</span>
+                <a class="item-detail btn" (click)="getToDeatilsPage('/property-detail',data.id)">Detail <i class="fa flaticon-detail"></i></a>
+              </div>
+              <div class="img-box">
+                <div class="property-label">
+                  <a href="javascript:void(0)" class="property-label__type">{{data.typename}} For Sale</a>
+                  <a href="javascript:void(0)" class="property-label__status" *ngIf="data.availability==0">Available</a>
+                  <a href="javascript:void(0)" class="property-label__status" *ngIf="data.availability==1">Sold</a>
+                  <a href="javascript:void(0)" class="property-label__status" *ngIf="data.availability==2">InActive</a>
+
+                </div>
+                <a href="javascript:void(0)" (click)="getToDeatilsPage('/property-detail',data.id)" class="btn-compare" title="Compare Property"><i class="fa fa-exchange"></i></a>
+                <a href="javascript:void(0)" (click)="getToDeatilsPage('/property-detail',data.id)" class="img-box__image"><img src={{data.thumbnailUrl}} alt="Property" class="img-responsive"></a>
+              </div>
+              <div class="property-content">
+                <a href="javascript:void(0)" (click)="getToDeatilsPage('/property-detail',data.id)" class="property-title">{{ data.name }}</a>
+                <div class="property-address">
+                  {{data.address}} {{data.city}} {{data.state}} {{data.country}} {{data.pincode }}
+                </div>
+                <div class="property-footer">
+                  <div class="item-wide"><span class="fi flaticon-wide"></span> 530</div>
+                  <div class="item-room"><span class="fi flaticon-room"></span> 4</div>
+                  <div class="item-bathroom"><span class="fi flaticon-bathroom"></span> 3</div>
+                  <div class="item-garage"><span class="fi flaticon-garage"></span> 1</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6" [ngClass]="searchResult.length==0? '': 'display-none'" *ngIf="searchResult.length==0">
+            No records
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <a href="#" class="prev"></a>
+        <span class="current">1</span>
+        <a href="#" class="page">2</a>
+        <a href="#" class="page">3</a>
+        <a href="#" class="page">4</a>
+        <a href="#" class="page">5</a>
+        <a href="#" class="next"></a>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+
+<div id="sidebar-compare">
+  <div class="sidebar-wrapper">
+    <a href="#" class="compare-toggle"><i class="fa fa-chevron-left"></i></a>
+    <header class="heading-bar">
+      <h3 class="heading-title">Compare Porperty</h3>
+    </header>
+    <ul class="compare-body">
+      <li class="compare-item">
+        <img src="assets/images/property_item_1_compare.jpg" alt="Property 1">
+        <h4 class="property-title">Stuning New 4 Bedroom Must Villa</h4>
+        <strong class="property-price">USD 176,969</strong>
+        <a href="#" class="remove"><i class="fa fa-trash-o"></i></a>
+      </li>
+      <li class="compare-item">
+        <img src="assets/images/property_item_2_compare.jpg" alt="Property 1">
+        <h4 class="property-title">Stuning New 4 Bedroom Must Villa</h4>
+        <strong class="property-price">USD 176,969</strong>
+        <a href="#" class="remove"><i class="fa fa-trash-o"></i></a>
+      </li>
+      <li class="compare-item">
+        <img src="assets/images/property_item_3_compare.jpg" alt="Property 1">
+        <h4 class="property-title">Stuning New 4 Bedroom Must Villa</h4>
+        <strong class="property-price">USD 176,969</strong>
+        <a href="#" class="remove"><i class="fa fa-trash-o"></i></a>
+      </li>
+      <li class="compare-item">
+        <img src="assets/images/property_item_4_compare.jpg" alt="Property 1">
+        <h4 class="property-title">Stuning New 4 Bedroom Must Villa</h4>
+        <strong class="property-price">USD 176,969</strong>
+        <a href="#" class="remove"><i class="fa fa-trash-o"></i></a>
+      </li>
+    </ul>
+    <footer class="footer-bar">
+      <a href="#" class="btn btn-primary btn-reset">Reset</a>
+      <a href="compare.html" class="btn btn-primary">Compare</a>
+    </footer>
+  </div>
+</div>

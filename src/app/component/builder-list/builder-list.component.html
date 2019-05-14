@@ -1,0 +1,37 @@
+<section class="bg-solid">
+  <div class="page-section">
+    <div class="container">
+      <div class="panel filter-panel">
+        <div class="panel-body">
+          <h4 class="filter-title pull-left" *ngIf="buildersdata?.length > 0">{{buildersdata.length}} Result Found</h4>
+        </div>
+      </div>
+      <div class="property-list archive-flex archive-with-footer">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6" *ngFor="let data of buildersdata">
+              <!-- Property Item -->
+              <div class="property-item">
+              <div class="property-heading">
+                  <span class="item-price">{{data.companyName}}</span>
+                  <a routerLink="/builderDetails/{{data.id}}" (click)="builderDetails()" class="item-detail btn">Details<i class="fi flaticon-detail"></i></a>
+                </div>
+                <div class="img-box">
+                  <a class="img-box__image"><img src="assets/images/{{data.companyLogo}}" alt="Property" class="img-responsive"></a>
+                </div>
+                <div class="property-content pb10 builder">
+                  <div>
+                    <p>
+                      {{data.description}}
+                    </p>
+                  </div>s
+  
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+  
+  </section>
+  

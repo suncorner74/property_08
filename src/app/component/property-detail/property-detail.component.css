@@ -1,0 +1,30 @@
+.visitInput{
+    margin-left: -12px
+}
+.avail{
+    padding-left: 20px;
+}
+.radio-inline, .checkbox-inline{
+    padding-left: 24px;
+}    
+.required label {
+    font-weight: bold;
+}
+.required label:after {
+    color: #e32;
+    content: ' *';
+    display:inline;
+}
+
+button.property-label__type.endToend {
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    text-decoration: none;
+    min-width: 60px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 10px;
+    color:#fff;
+}

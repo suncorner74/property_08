@@ -1,0 +1,115 @@
+<section class="page-header">
+	<div class="container">
+		<h1 class="page-header-title">Compare Properties</h1>
+		<ul class="breadcrumb">
+			<li><a href="#">Home</a></li>
+			<li class="active">Properties</li>
+		</ul>
+	</div>
+</section>
+
+<section id="property-compare" class="page-section">
+	<div class="container">
+		<div class="compare-table">
+			<div class="compare-column basic-info">
+				<div class="column-heading"><h3 class="heading-title">Basic Info</h3></div>
+				<ul class="property-list-info">
+					<li>Type</li>
+					<li>City</li>
+					<li>Status</li>
+					<li>Bedroom</li>
+					<li>Bathroom</li>
+					<li>Area</li>
+					<li>Swimming Pool</li>
+					<li>Laundry Room</li>
+				</ul>
+			</div>
+			<div class="compare-column property-compare-wrapper">
+				<div class="property-compare-item" *ngFor="let data of compareList">
+					<div class="column-heading">
+						<a href="#" class="property-image-title">
+							<div class="property-img"><img src="assets/images/property_item_compare_1.jpg" alt="#"></div>
+							<h3 class="property-title">{{data.name}}</h3>
+						</a>
+						<strong class="property-price">{{data.price}}
+							<small *ngIf="data.buyOrRent==0">For Buy</small>
+							<small *ngIf="data.buyOrRent==1">For Rent</small>
+						</strong>
+					</div>
+					<ul class="property-list-info">
+						<li>{{data.typename}}</li>
+						<li>{{data.city}}</li>
+						<li *ngIf="data.availability==0">Available</li>
+						<li *ngIf="data.availability==1">Sold</li>
+						<li *ngIf="data.availability==2">InActive</li>
+						<li>2</li>
+						<li>1</li>
+						<li>{{data.area}} sqft</li>
+						<li><i class="fa fa-check"></i></li>
+						<li><i class="fa fa-times"></i></li>
+					</ul>
+				</div>
+				<!-- <div class="property-compare-item">
+					<div class="column-heading">
+						<a href="#" class="property-image-title">
+							<div class="property-img"><img src="assets/images/property_item_compare_2.jpg" alt="#"></div>
+							<h3 class="property-title">Luxury Home in Lassen Lor Country</h3>
+						</a>
+						<strong class="property-price">$ 1,000,000 <small>For Buy</small></strong>
+					</div>
+					<ul class="property-list-info">
+						<li>House</li>
+						<li>Brisbane</li>
+						<li>Sold</li>
+						<li>2</li>
+						<li>1</li>
+						<li>800 sqft</li>
+						<li><i class="fa fa-check"></i></li>
+						<li><i class="fa fa-times"></i></li>
+					</ul>
+				</div>
+				<div class="property-compare-item">
+					<div class="column-heading">
+						<a href="#" class="property-image-title">
+							<div class="property-img"><img src="assets/images/property_item_compare_3.jpg" alt="#"></div>
+							<h3 class="property-title">Luxury Home in Lassen Lor Country</h3>
+						</a>
+						<strong class="property-price">$ 1,000,000 <small>For Buy</small></strong>
+					</div>
+					<ul class="property-list-info">
+						<li>House</li>
+						<li>Brisbane</li>
+						<li>Sold</li>
+						<li>2</li>
+						<li>1</li>
+						<li>800 sqft</li>
+						<li><i class="fa fa-check"></i></li>
+						<li><i class="fa fa-times"></i></li>
+					</ul>
+				</div>
+				<div class="property-compare-item">
+					<div class="column-heading">
+						<a href="#" class="property-image-title">
+							<div class="property-img"><img src="assets/images/property_item_compare_4.jpg" alt="#"></div>
+							<h3 class="property-title">Luxury Home in Lassen Lor Country</h3>
+						</a>
+						<strong class="property-price">$ 1,000,000 <small>For Buy</small></strong>
+					</div>
+					<ul class="property-list-info">
+						<li>House</li>
+						<li>Brisbane</li>
+						<li>Sold</li>
+						<li>2</li>
+						<li>1</li>
+						<li>800 sqft</li>
+						<li><i class="fa fa-check"></i></li>
+						<li><i class="fa fa-times"></i></li>
+					</ul>
+				</div> -->
+			</div>
+		</div>
+		<div class="button-box text-center">
+			<a (click)="clearCampareList()" class="btn btn-primary">Clear and Back to Property List</a>
+		</div>
+	</div>
+</section>

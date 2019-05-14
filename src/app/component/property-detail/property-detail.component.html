@@ -1,0 +1,317 @@
+<section class="page-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<!-- Content -->
+				<div id="content">
+					<!-- Property Single Detail / Description -->
+					<article class="post property-item">
+						<div class="post-property-header">
+							<div class="row">
+								<div class="col-md-8 col-sm-8">
+									<h3 class="post-title"><a href="#">{{ propertiesDetails.name }}</a></h3>
+								</div>
+								<div class="col-md-4 col-sm-4 text-right">
+									<span class="property-price">&#8377;{{ propertiesDetails.price }}</span>
+								</div>
+							</div>
+							<div class="property-address">
+								{{propertiesDetails.address}} {{propertiesDetails.city}} {{propertiesDetails.state}}
+								{{propertiesDetails.country}} {{propertiesDetails.pincode }}
+							</div>
+							<div class="property-label">
+								<a href="#" class="property-label__type">{{propertiesDetails.type}} For Sale</a>
+								<a href="#" class="property-label__status" *ngIf="propertiesDetails.availability==0">Available</a>
+								<a href="#" class="property-label__status" *ngIf="propertiesDetails.availability==1">Sold</a>
+								<a href="#" class="property-label__status" *ngIf="propertiesDetails.availability==2">InActive</a>
+								<button type="button" class="property-label__type endToend" data-toggle="modal" data-target="#myModal" *ngIf="propertiesDetails.e2eServiceFlag==0">End
+									To End Service</button>
+								<button type="button" class="property-label__type endToend" data-toggle="modal" data-target="#myInfo">Get Quat</button>
+
+							</div>
+						</div>
+
+						<!-- Property Gallery Slider -->
+						<div class="property-image">
+							<div id="property-slider" class="property-slider">
+								<img *ngFor="let img of propertiesDetails.propertyImageUrls" src="{{img}}" alt="Property Photo 1">
+							</div>
+							<!-- Property Gallery Slider Navigation -->
+							<div id="property-slider-nav" class="property-slider-nav">
+								<img *ngFor="let img of  propertiesDetails.propertyImageUrls" src="{{img}}" alt="Property Photo 1">
+							</div>
+						</div>
+						<!-- Property facility Detail -->
+						<div class="property-footer">
+							<div class="item-wide"><span class="fi flaticon-wide"></span> 223 m2</div>
+							<div class="item-room"><span class="fi flaticon-room"></span> 4</div>
+							<div class="item-bathroom"><span class="fi flaticon-bathroom"></span> 3</div>
+							<div class="item-garage"><span class="fi flaticon-garage"></span> 1</div>
+							<div class="item-comment"><span class="fa fa-comments-o"></span> No Comments</div>
+						</div>
+						<hr>
+
+						<!-- Facilities Section -->
+						<hr>
+						<div class="row">
+							<div class="col-md-3 col-sm-3">
+								<h3 class="heading-title">Facilities</h3>
+							</div>
+							<div class="col-md-9 col-sm-9" *ngFor="let data of propertiesDetails.propertyFacilities">
+								<ul class="feature-list">
+									<li><i class="fa fa-cutlery"></i> {{data.facilityName}}</li>
+								</ul>
+							</div>
+						</div>
+						<!-- Description Section -->
+						<hr>
+						<div class="row">
+							<div class="col-md-3 col-sm-3">
+								<h3 class="heading-title">Description</h3>
+							</div>
+							<div class="col-md-9 col-sm-9">
+								{{propertiesDetails.description}}
+							</div>
+						</div>
+						<!-- Availability Section -->
+						<hr>
+						<div class="row">
+							<div class="col-md-3 col-sm-3">
+								<h3 class="heading-title">Availability</h3>
+							</div>
+							<div class="col-md-9 col-sm-9">
+								<h4 class="property-status" *ngIf="propertiesDetails.availability==0">Available</h4>
+								<h4 class="property-status" *ngIf="propertiesDetails.availability==1">Sold</h4>
+								<h4 class="property-status" *ngIf="propertiesDetails.availability==2">InActive</h4>
+
+							</div>
+						</div>
+					</article>
+
+					<!-- Property Location / Map -->
+					<!-- <div class="property-location widget panel-box">
+						<div class="panel-header">
+							<h3 class="panel-title">Property Location</h3>
+						</div>
+						<div class="panel-body">
+							<div id="map"></div>
+						</div>
+					</div> -->
+
+					<!-- Floor Plans -->
+					<div class="property-floor widget panel-box">
+						<div class="panel-header">
+							<h3 class="panel-title">Floor Plans</h3>
+						</div>
+						<div class="panel-body">
+							<div class="property-floor-plan">
+								<div class="popup-gallery" *ngFor="let flor of propertiesDetails.propertyFloorPlans">
+									<a title="Floor 1">
+										<img src="{{flor}}" alt="Floor 1">
+										<span>Floor 1</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Files Attachment -->
+					<!-- <div class="property-file widget panel-box">
+						<div class="panel-header">
+							<h3 class="panel-title">File Attachments</h3>
+						</div>
+						<div class="panel-body">
+							<ul class="property-attachment">
+								<li>
+									<a href="#" class="attachment-icon"><i class="fa fa-file-pdf-o"></i></a>
+									<div class="attachment-text">
+										<span class="text-title">Property Paper</span>
+										<a href="#" class="download-link">Download</a>
+									</div>
+								</li>
+								<li>
+									<a href="#" class="attachment-icon"><i class="fa fa-file-word-o"></i></a>
+									<div class="attachment-text">
+										<span class="text-title">Property Documents</span>
+										<a href="#" class="download-link">Download</a>
+									</div>
+								</li>
+								<li>
+									<a href="#" class="attachment-icon"><i class="fa fa-file-excel-o"></i></a>
+									<div class="attachment-text">
+										<span class="text-title">Property Pricing</span>
+										<a href="#" class="download-link">Download</a>
+									</div>
+								</li>
+								<li>
+									<a href="#" class="attachment-icon"><i class="fa fa-file-archive-o"></i></a>
+									<div class="attachment-text">
+										<span class="text-title">Property Archive</span>
+										<a href="#" class="download-link">Download</a>
+									</div>
+								</li>
+								<li>
+									<a href="#" class="attachment-icon"><i class="fa fa-file-o"></i></a>
+									<div class="attachment-text">
+										<span class="text-title">Property File</span>
+										<a href="#" class="download-link">Download</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>				 -->
+				</div>
+			</div>
+			<div class="col-md-4">
+
+				<!-- Sidebar -->
+				<div id="sidebar">
+					<!-- widget section Recent Property-->
+					<div class="widget">
+						<div class="panel-box">
+							<!-- Panel Header / Title -->
+							<div class="panel-header">
+								<h3 class="panel-title">Recent Property</h3>
+							</div>
+							<!-- Panel Body -->
+							<div class="panel-body">
+								<!-- Recent Property -->
+								<ul class="recent-property" *ngFor="let property of propertiList.list">
+									<!-- Property List Item -->
+									<li>
+										<div class="property-image"><img src="{{property.thumbnailUrl}}" alt="Property One"></div>
+										<div class="property-content">
+											<a href="single-property.html">{{property.name}}</a>
+											<span class="property-price">&#8377; {{property.price}}</span>
+										</div>
+									</li>
+
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="modal" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">End To End Service</h4>
+
+				<button type="button" class="close" (click)="revert()" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				<form [formGroup]="userEntryForm" (ngSubmit)="onSubmit($event)">
+					<div class="form-group required">
+						<label>Full Name</label>
+						<input type="text" name="name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+						 required />
+						<div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+							<div *ngIf="f.name.errors.required">Full Name is required</div>
+							<div *ngIf="f.name.errors.name">Valid Name</div>
+						</div>
+					</div>
+
+					<div class="form-group required ">
+						<label>Email</label>
+						<input type="text" formControlName="email" placeholder="abc@gmail.com" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+						 required />
+						<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+							<div *ngIf="f.email.errors.required">Email is required</div>
+							<div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+						</div>
+					</div>
+					<div class="form-group required">
+						<label>Phone Number</label>
+						<input type="tel" formControlName="phoneNumber" class="form-control" placeholder="+919999999999" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+						 required minlength=10 maxlength=10>
+						<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+							<div *ngIf="f.email.errors.required">Phone Number is required</div>
+							<div *ngIf="f.email.errors.email">Phone Number must be a valid </div>
+						</div>
+					</div>
+					<div class="form-group col-sm-6  required visitInput">
+						<label>Vist Date And Time</label>
+						<input type="datetime-local" formControlName="visitDateTime" class="form-control" [ngModel]="filterDateFrom | date:'yyyy-MM-dd HH:mm a z':'+0900'"
+						 [ngClass]="{ 'is-invalid': submitted && f.visitDateTime.errors }" required />
+						<div *ngIf="submitted && f.visitDateTime.errors" class="invalid-feedback">
+							<div *ngIf="f.visitDateTime.errors.required">Date and time is required</div>
+							<div *ngIf="f.visitDateTime.errors.visitDateTime">date and time must be a valid </div>
+						</div>
+					</div>
+
+					<div class="form-group col-sm-6">
+						<label>Number of Person</label>
+						<input type="text" formControlName="noOfPerson" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.noOfPerson.errors }" />
+						<div *ngIf="submitted && f.noOfPerson.errors" class="invalid-feedback">
+							<div *ngIf="f.noOfPerson.errors.required">Number of person is required</div>
+							<div *ngIf="f.noOfPerson.errors.noOfPerson">Number must be a valid </div>
+						</div>
+					</div>
+					<div class="form-group">
+						<span class="required"> <label>Vehicle</label></span>
+						<span>
+							<label class="radio-inline">
+								<input type="radio" id="own" value="0" checked name="ownVehicle" formControlName="ownVehicle" required> Avail
+								vehicle
+							</label>
+						</span>
+						<span class="avail">
+							<label class="radio-inline">
+								<input type="radio" id="avail" value="1" name="ownVehicle" formControlName="ownVehicle" required> Own Vehicle
+							</label>
+						</span>
+					</div>
+					<div class="form-group required">
+						<label>Pick up Location</label>
+						<input type="text" formControlName="pickupLocation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pickupLocation.errors }"
+						 required />
+						<div *ngIf="submitted && f.pickupLocation.errors" class="invalid-feedback">
+							<div *ngIf="f.pickupLocation.errors.required">Location is required</div>
+							<div *ngIf="f.pickupLocation.errors.pickupLocation">Location must be a valid </div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<button [disabled]="loading" class="btn btn-success btn-primary">Submit</button>
+					</div>
+				</form>
+
+			</div>
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" (click)="revert()" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="myInfo">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Contact Us</h4>
+				<button type="button" class="close" (click)="revert()" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<h5 class="modal-title">Name:@admin</h5>
+				<h5 class="modal-title">Phone:+918877665544</h5>
+
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" (click)="revert()" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

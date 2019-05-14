@@ -1,0 +1,87 @@
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-header-title">Properties</h1>
+    <ul class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li class="active">Properties</li>
+    </ul>
+  </div>
+</section>
+<!-- ====== PROPERTY LIST CONTENT ====== -->
+<section class="page-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Content -->
+        <div id="content">
+          <div class="row">
+            <div class="property-item property-archive col-lg-12 col-md-6 col-sm-6" *ngFor="let data of pagedItems">
+              <div class="row">
+                <div class="col-lg-5">
+                  <a  class="property-image" (click)="getToDeatilsPage('/property-detail',data.id)">
+                    <img src="{{data.thumbnailUrl}}"  alt="Post list 1">
+                  </a>
+                  <a  (click)="addForCompare(data)" class="btn-compare" title="Compare Property"><i class="fa fa-exchange"></i></a>
+                </div>
+                <div class="col-lg-7">
+                  <div class="property-content">
+                    <h3 class="property-title"><a href="single-property.html">{{ data.name }}</a></h3>
+                    <p>
+                      <span class="property-price">&#8377; {{ data.price}}</span>
+                      <span class="property-label">
+                        <a href="javascript:void(0)" class="property-label__type">{{data.typename}} For Sale</a>
+                        <a href="javascript:void(0)" class="property-label__status" *ngIf="data.availability==0">Available</a>
+                        <a href="javascript:void(0)" class="property-label__status" *ngIf="data.availability==1">Sold</a>
+                        <a href="javascript:void(0)" class="property-label__status" *ngIf="data.availability==2">InActive</a>
+                      </span>
+                    </p>
+                    <div class="property-address">
+                     {{data.address}} {{data.city}} {{data.state}} {{data.country}} {{data.pincode }}
+                    </div>
+                    <p class="property-description">{{data.description}}</p>
+                    <div class="property-footer">
+                      <div class="item-wide"><span class="fi flaticon-wide"></span> 530</div>
+                      <div class="item-room"><span class="fi flaticon-room"></span> 4</div>
+                      <div class="item-bathroom"><span class="fi flaticon-bathroom"></span> 3</div>
+                      <div class="item-garage"><span class="fi flaticon-garage"></span> 1</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Property List Pagination -->
+          <div class="pagination">
+            <a [ngClass]="{disabled:pager.currentPage === 1}" class="prev" (click)="setPage(pager.currentPage - 1)"></a>
+            <a *ngFor="let page of pager.pages" [ngClass]="{current:pager.currentPage === page}" (click)="setPage(page)">{{page}}</a>
+            <a [ngClass]="{disabled:pager.currentPage === pager.totalPages}" (click)="setPage(pager.currentPage + 1)" class="next"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="sidebar-compare">
+  <div class="sidebar-wrapper">
+    <a href="#" class="compare-toggle"><i class="fa fa-chevron-left"></i></a>
+    <header class="heading-bar">
+      <h3 class="heading-title">Compare Porperty</h3>
+    </header>
+    <ul class="compare-body" *ngFor="let data of compareProperty">
+      <li class="compare-item">
+        <img src="{{data.thumbnailUrl}}" alt="Property 1">
+        <h4 class="property-title">{{data.name}}</h4>
+        <strong class="property-price">{{data.price}}</strong>
+        <a (click)="removeFromCompare(data.id)" class="remove"><i class="fa fa-trash-o"></i></a>
+      </li>
+     
+    </ul>
+    <footer class="footer-bar">
+      <a  (click)="reset()" class="btn btn-primary btn-reset">Reset</a>
+      <a  class="btn btn-primary" *ngIf="compareProperty.length==0" disabled (click)="postComparePage('/compare')">Compare</a>
+      <a  class="btn btn-primary" *ngIf="compareProperty.length>0" (click)="postComparePage('/compare')">Compare</a>
+    </footer>
+  </div>
+</div>
